@@ -108,6 +108,7 @@ J = jacobian([x_ee; y_ee; phi_ee], theta);
 J_general = jacobian([x_general; y_general; phi_ee], theta);
 
 J_4 = jacobian([x_4e; y_4e; theta1 + theta2 + theta3 + theta4 ], theta);
+J_4e = jacobian([x_4e; y_4e; theta1 + theta2 + theta3 + theta4 + theta5], theta);
 
 % Display results
 M
@@ -116,6 +117,7 @@ G
 J
 J_general
 J_4
+J_4e
 %%
 l = [1; 1; 1; 1; 2]*0.2;
 lc = l./2;
