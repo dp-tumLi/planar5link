@@ -4,10 +4,10 @@ function Lambda_c = computeLambdaC(J_ee, M_c, P, epsilon)
     Lambda_c = zeros(3, 3); % Assuming Lambda_c is always 3x3
 
     % Compute the inverse of the constrained joint inertia matrix
-    M_c_inv = inv(M_c);
+%     M_c_inv = inv(M_c);
 
     % Compute the projected inertia matrix in task space
-    M_proj = J_ee * (M_c_inv * P) * J_ee';
+    M_proj = J_ee / M_c * P * J_ee';
 
     % Perform Singular Value Decomposition (SVD)
     [U, Sigma, V] = svd(M_proj);

@@ -57,8 +57,8 @@ function plot5link(x, y)
         xlabel('X (m)');
         ylabel('Y (m)');
         title('Real-Time Manipulator Animation');
-        xlim([-1 1]); % Adjust based on workspace size
-        ylim([-1 1]);
+        xlim([-0.2 1.5]); % Adjust based on workspace size
+        ylim([-0.2 1.5]);
         
         % Initialize links and joints
         linkColors = {'r', 'g', 'b', 'm', 'c'}; % Colors for the links

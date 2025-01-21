@@ -92,8 +92,8 @@ y_ee = l1 * sin(theta1) + l2 * sin(theta1 + theta2) + l3 * sin(theta1 + theta2 +
 x_ee
 y_ee
 
-x_4e = l1 * cos(theta1) + l2 * cos(theta1 + theta2) + l3 * cos(theta1 + theta2 + theta3) + l4 * cos(theta1 + theta2 + theta3 + theta4);
-y_4e = l1 * sin(theta1) + l2 * sin(theta1 + theta2) + l3 * sin(theta1 + theta2 + theta3) + l4 * sin(theta1 + theta2 + theta3 + theta4);
+x_4e = l1 * cos(theta1) + l2 * cos(theta1 + theta2) + l3 * cos(theta1 + theta2 + theta3) + 0*l4 * cos(theta1 + theta2 + theta3 + theta4);
+y_4e = l1 * sin(theta1) + l2 * sin(theta1 + theta2) + l3 * sin(theta1 + theta2 + theta3) + 0*l4 * sin(theta1 + theta2 + theta3 + theta4);
 
 x_4e
 y_4e
@@ -101,6 +101,11 @@ y_4e
 x_general = l1 * cos(theta1) + l2 * cos(theta1 + theta2) + l3 * cos(theta1 + theta2 + theta3) + l4 * cos(theta1 + theta2 + theta3 + theta4) + l5_general * cos(theta1 + theta2 + theta3 + theta4 + theta5);
 y_general = l1 * sin(theta1) + l2 * sin(theta1 + theta2) + l3 * sin(theta1 + theta2 + theta3) + l4 * sin(theta1 + theta2 + theta3 + theta4) + l5_general * sin(theta1 + theta2 + theta3 + theta4 + theta5);
 
+x_2e = l1 * cos(theta1) + l2 * cos(theta1 + theta2);
+y_2e = l1 * sin(theta1) + l2 * sin(theta1 + theta2);
+Phi_2e = theta1+theta2;
+x_2e
+y_2e
 
 phi_ee = theta1 + theta2 + theta3 + theta4 + theta5;
 J = jacobian([x_ee; y_ee; phi_ee], theta);
@@ -108,8 +113,8 @@ J = jacobian([x_ee; y_ee; phi_ee], theta);
 J_general = jacobian([x_general; y_general; phi_ee], theta);
 
 J_4 = jacobian([x_4e; y_4e; theta1 + theta2 + theta3 + theta4 ], theta);
-J_4e = jacobian([x_4e; y_4e; theta1 + theta2 + theta3 + theta4 + theta5], theta);
-
+J_4e = jacobian([x_4e; y_4e; theta1 + theta2 + theta3 + theta4], theta);
+J_2e = jacobian([x_2e; y_2e; Phi_2e], theta);
 % Display results
 M
 C
@@ -118,11 +123,12 @@ J
 J_general
 J_4
 J_4e
+J_2e
 %%
 l = [1; 1; 1; 1; 2]*0.2;
 lc = l./2;
-m = [1; 1; 1; 0.3; 0.3]*1;
-I = [1; 1; 1; 0.5; 0.5]*0.2;
+m = [1; 1; 1; 0.3; 0.3]*5;
+I = [1; 1; 1; 0.5; 0.5]*2;
 q0 = [pi/2; -pi/4; -1*pi/6;-pi/12;0;];
 theta_min = [-0.915*pi; -0.915*pi; -0.915*pi; -0.915*pi; -0.915*pi;];
 theta_max = [0.915*pi; 0.915*pi; 0.915*pi; 0.915*pi; 0.915*pi;];
