@@ -9,6 +9,7 @@ Time = out.tout;
 for t = 1:10:numTimeSteps
     plot5link(X(:,:,t), Y(:,:,t));
     pause(0.1); % Adjust pause for desired animation speed
+    hold on
     disp(Time(t))
 end
 

@@ -15,11 +15,11 @@ function plot5link(x, y)
         xlabel('X (m)');
         ylabel('Y (m)');
         title('Real-Time Manipulator Animation');
-        xlim([-0.2 1.5]); % Adjust based on workspace size
-        ylim([-0.2 1.5]);
+        xlim([-0.1 1]); % Adjust based on workspace size
+        ylim([-0.1 0.6]);
 
         % Initialize links and joints
-        linkColors = {'r', 'g', 'b', 'm', 'c'}; % Colors for the links
+        linkColors = {[0.7 0.7 0.7], [0.7 0.7 0.7], [0.7 0.7 0.7], [0.7 0.7 0.7], [0.7 0.7 0.7]}; % Colors for the links
         links = gobjects(1, 5); % Preallocate plot handles
         for i = 1:5
             links(i) = plot([0, 0], [0, 0], 'LineWidth', 2, 'Color', linkColors{i});
